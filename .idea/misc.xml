@@ -3,10 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/drustii-player/app/src/main/res/layout/activity_folder.xml" value="0.22" />
         <entry key="..\:/drustii-player/app/src/main/res/layout/activity_main.xml" value="0.3333333333333333" />
-        <entry key="..\:/drustii-player/app/src/main/res/layout/activity_video.xml" value="0.1578125" />
+        <entry key="..\:/drustii-player/app/src/main/res/layout/activity_video.xml" value="0.12" />
         <entry key="..\:/drustii-player/app/src/main/res/layout/folder_view.xml" value="0.5" />
         <entry key="..\:/drustii-player/app/src/main/res/layout/video_view.xml" value="0.1578125" />
+        <entry key="..\:/drustii-player/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
+        <entry key="..\:/drustii-player/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1" />
       </map>
     </option>
   </component>

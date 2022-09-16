@@ -4,11 +4,15 @@
         <!-- Primary brand color. -->
         <item name="colorPrimary">#E8EAF6</item>
         <item name="colorPrimaryVariant">#78679F</item>
-        <item name="colorOnPrimary">@color/white</item>
+
+        <!-- Text Color for adapter elements -->
+        <item name="colorOnPrimary">#3700B3</item>
+
+
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">#9FA8DA</item>
+        <item name="colorSecondary">#6BE8EAF6</item>
         <item name="colorSecondaryVariant">#B39DDB</item>
-        <item name="colorOnSecondary">#BA68C8</item>
+        <item name="colorOnSecondary">#6200EA</item>
 
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimary</item>

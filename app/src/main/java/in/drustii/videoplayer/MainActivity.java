@@ -1,14 +1,24 @@
 package in.drustii.videoplayer;
 
+import android.Manifest;
 import android.content.res.Configuration;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.util.Log;
+import android.view.View;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.karumi.dexter.Dexter;
+import com.karumi.dexter.PermissionToken;
+import com.karumi.dexter.listener.PermissionDeniedResponse;
+import com.karumi.dexter.listener.PermissionGrantedResponse;
+import com.karumi.dexter.listener.PermissionRequest;
+import com.karumi.dexter.listener.single.PermissionListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
     private Cursor videocursor;
     RecyclerView homeContainer;
     List<FolderModel> videoFolder;
+    TextView showError;
+    CardView errorContainer;
 
 
     @Override
@@ -30,12 +42,46 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         homeContainer = findViewById(R.id.homeContainer);
         videoFolder = new ArrayList<FolderModel>();
-        getAllFolder();
+
+        showError = findViewById(R.id.msg);
+        errorContainer = findViewById(R.id.Error_Container);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        Dexter.withContext(getApplicationContext())
+                .withPermission(
+                        Manifest.permission.READ_EXTERNAL_STORAGE
+                )
+                .withListener(new PermissionListener() {
+                    @Override
+                    public void onPermissionGranted(PermissionGrantedResponse permissionGrantedResponse) {
+                        showError.setVisibility(View.GONE);
+                        errorContainer.setVisibility(View.GONE);
+                        videoFolder.clear();
+                        getAllFolder();
+                    }
+
+                    @Override
+                    public void onPermissionDenied(PermissionDeniedResponse permissionDeniedResponse) {
+                        showError.setText("Please Give Storage Permission to play videos");
+                        showError.setVisibility(View.VISIBLE);
+                        errorContainer.setVisibility(View.VISIBLE);
+
+                    }
+
+                    @Override
+                    public void onPermissionRationaleShouldBeShown(PermissionRequest permissionRequest, PermissionToken permissionToken) {
+                        permissionToken.continuePermissionRequest();
+                    }
+                }).check();
+
+
     }
 
     public void getAllFolder() {
-
-        // HashSet<String> videoItemHashSet = new HashSet<>();
 
         String[] projection = {MediaStore.Video.VideoColumns.DATA, MediaStore.Video.Media.BUCKET_DISPLAY_NAME};
 
@@ -61,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
 
             } while (cursor.moveToNext());
 
-            Log.d("videosFolder1 ", videoFolder.toString());
+//            Log.d("videosFolder1 ", videoFolder.toString());
 
             cursor.close();
         } catch (Exception e) {

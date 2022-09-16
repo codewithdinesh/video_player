@@ -2,7 +2,7 @@ package in.drustii.videoplayer.Video;
 
 public class VideoModel {
     String videoName;
-    String videoThumbnail;
+    String videoPath;
 
     public String getVideoName() {
         return videoName;
@@ -12,11 +12,11 @@ public class VideoModel {
         this.videoName = videoName;
     }
 
-    public String getVideoThumbnail() {
-        return videoThumbnail;
+    public String getVideoPath() {
+        return videoPath;
     }
 
-    public void setVideoThumbnail(String videoThumbnail) {
-        this.videoThumbnail = videoThumbnail;
+    public void setVideoPath(String videoPath) {
+        this.videoPath = videoPath;
     }
 }

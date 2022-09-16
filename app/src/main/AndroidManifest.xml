@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="in.drustii.videoplayer">
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+
 
     <application
         android:allowBackup="true"
@@ -13,6 +16,7 @@
         android:theme="@style/Theme.DrustiiVideoPlayer">
         <activity
             android:name=".Video.VideoActivity"
+            android:configChanges="orientation|screenSize|layoutDirection"
             android:exported="false" />
         <activity
             android:name=".Folder.FolderActivity"

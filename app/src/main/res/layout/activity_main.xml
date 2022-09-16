@@ -3,15 +3,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_gravity="center"
-    android:background="#6BE8EAF6"
+    android:background="?attr/colorSecondary"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="#E8EAF6"
+        android:background="?attr/colorPrimary"
         android:outlineProvider="none">
 
         <TextView
@@ -25,7 +26,7 @@
             android:shadowRadius="20"
             android:text="@string/app_name"
             android:textAlignment="center"
-            android:textColor="#6200EA"
+            android:textColor="?attr/colorOnSecondary"
             android:textSize="30dp"
 
             />
@@ -33,6 +34,27 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/Error_Container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:elevation="5dp"
+        android:visibility="gone"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="10dp">
+
+        <TextView
+            android:id="@+id/msg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#57D6D6D6"
+            android:padding="15dp"
+            android:textColor="#FF8F00"
+            android:visibility="gone" />
+
+    </androidx.cardview.widget.CardView>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/homeContainer"

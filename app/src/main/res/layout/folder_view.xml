@@ -44,7 +44,7 @@
                 android:freezesText="true"
                 android:text="Download Download Folder"
                 android:textAlignment="center"
-                android:textColor="#3700B3"
+                android:textColor="?attr/colorOnPrimary"
                 android:textSize="12dp" />
 
         </LinearLayout>
